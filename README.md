@@ -48,16 +48,16 @@ This data comes from Drug Central, containing 2 columns, mapping gene name to ca
 Columns: GENE, CANCER
 
 ### [1_preprocess_raw_data.ipynb](notebooks/1_preprocess_raw_data.ipynb)
-This notebook pre-processes the data to be utilized in visualization
+This notebook processes the DrugCentral and Cosmic raw data for visualizations
 
 ### [2_calculate_drug_score.ipynb](notebooks/2_calculate_drug_score.ipynb)
-This notebook calculates the drug scores
+This notebook calculates the drug centric scores for drug-cancer type gene precision and drug-gene type precision
 
 ### [3_calculate_drug_structure_similarity.ipynb](notebooks/3_calculate_structure_similarity.ipynb)
-This notebook calculates the drug structure similarity
+This notebook calculates the drug structure similarities based on the Tanimoto Similarity Score
 
 ### [4_deepcoveragemoa.ipynb](notebooks/4_deepcoveragemoa.ipynb)
-This notebook for prediomics data processing (drug prediomics dataset)
+This notebook processes the proteomics raw data (DeepCoverageMOA) 
 
  # Sample Radar Plots for OncoMatch
 ![image](https://github.com/user-attachments/assets/7fb4a0ac-dce8-4675-9d52-820486dad6da)

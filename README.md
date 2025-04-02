@@ -1,4 +1,4 @@
-# OncoMatch - Optimizing Oncology Combination Therapy Prediction Through Genomic, Structural, and Network Analysis
+# OncoMATCH - Optimizing Oncology Combination Therapy Prediction Through Genomic, Structural, and Network Analysis
 
 # What's the problem?
 ### Despite advancements in precision medicine, identifying effective cancer treatments remains a challenge due to the complexity of linking genetic data to drug pathways. [Prior research](https://osf.io/preprints/biohackrxiv/c5wtr_v1) - has demonstrated a method for identifying potential colorectal cancer drugs by integrating genetic data with drug effectiveness scoring. However, this approach has not been widely applied to other cancers or optimized for clinical decision-making.

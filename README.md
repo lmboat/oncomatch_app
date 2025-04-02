@@ -6,11 +6,11 @@
 # How are we solving the problem?
 ### We aim to solve this problem by expanding the existing methodology to other cancers with similar classification systems, including bladder, ovarian, and small-cell lung cancer, thereby broadening its impact. Additionally, we plan to enhance diagnostics by leveraging Drug Central to map current treatments to genetic cancer data, and developing an evidence-based scoring system to assess the effectiveness of drug combinations in clinical settings. By advancing these efforts, we seek to improve precision medicine by making cancer treatment more personalized and data-driven.
 
-# Workflow for OncoMatch
+# Workflow for OncoMATCH
 ### OncoMatch is a web app that matches the cancer and gene mutation type to the most effective drug therapy based on the activity score of the drug against the specific gene target. We utilize the [COSMIC database](https://cancer.sanger.ac.uk/cosmic/browse/tissue?wgs=off&sn=ovary&ss=all&hn=all&sh=&in=t&src=tissue&all_data=n) - to identify the gene mutations for specific cancer types and the [Drug Central database](https://drugcentral.org/) - to identify the drug therapies and the specific genes they target.
 <img width="807" alt="Screen Shot 2025-04-02 at 2 22 11 PM" src="https://github.com/user-attachments/assets/4a595176-0375-4500-9a64-d740717ec0cb" />
 
-# Datasets for OncoMatch
+# Datasets for OncoMATCH
 ### [Cosmic_CancerGeneCensus_v99_GRCh38.tsv](data/Cosmic/Cosmic_CancerGeneCensus_v99_GRCh38.tsv)
 This data comes from a Gene Census located in the Cosmic database. Columns: GENE_SYMBOL, NAME, COSMIC_GENE_ID, CHROMOSOME, GENOME_START, GENOME_STOP, CHR_BAND, SOMATIC, GERMLINE, TUMOUR_TYPES_SOMATIC, TUMOUR_TYPES_GERMLINE, CANCER_SYNDROME, TISSUE_TYPE, MOLECULAR_GENETICS, ROLE_IN_CANCER, MUTATION_TYPES, TRANSLOCATION_PARTNER, OTHER_GERMLINE_MUT, OTHER_SYNDROME, TIER, SYNONYMS
 
@@ -59,5 +59,5 @@ This notebook calculates the drug structure similarities based on the Tanimoto S
 ### [4_deepcoveragemoa.ipynb](notebooks/4_deepcoveragemoa.ipynb)
 This notebook processes the proteomics raw data (DeepCoverageMOA) 
 
- # Sample Radar Plots for OncoMatch
+ # Sample Radar Plots for OncoMATCH
 ![image](https://github.com/user-attachments/assets/7fb4a0ac-dce8-4675-9d52-820486dad6da)

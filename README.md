@@ -35,5 +35,17 @@ Columns: SMILES, InChl, InChlKey, ID, INN, CAS_RN
 This data comes from Drug Central, containing 2 columns mapping drug name to struct id
 Columns: DRUG_NAME, STRUCT_ID
 
+### [drug.target.interaction.fda.cosmic.cancer.type](data/DrugCentral/processed_data/drug.target.interaction.fda.cosmic.cancer.type.tsv)
+This data comes from Drug Central, containing many columns including drug name, the gene it targets, efficacy metrics/values, and cancer type
+Columns: DRUG_NAME, STRUCT_ID, TARGET_NAME, TARGET_CLASS, ACCESSION, GENE, SWISSPROT, ACT_VALUE, ACT_UNIT, ACT_TYPE, ACT_COMMENT, ACT_SOURCE, RELATION, MOA, MOA_SOURCE, ACT_SOURCE_URL, MOA_SOURCE_URL, ACTION_TYPE, TDL, ORGANISM, Driver_Gene, FDA_Approved, EMA_Apprived, PMDA_Approved, Bladder, Colon, NSCLC, Ovarian
+
+### [drug.target.interaction.scores.tsv](data/DrugCentral/processed_data/drug.target.interaction.scores.tsv)
+This data comes from Drug Central, containing many columns including drug name gene targeted, and precision score for each cancer type
+Columns: DRUG_NAME, nGENE, BLADDER_CPS, BLADDER_CGPS, COLON_CPS, COLON_CGPS, NSCLC_CPS, NSCLC_CGPS, OVARIAN_CPS, OVARIAN_CGPS
+
+### [gene.id.csv](data/DrugCentral/processed_data/gene.id.csv)
+This data comes from Drug Central, containing 2 columns, mapping gene name to cancer type
+Columns: GENE, CANCER
+
  # Sample Radar Plots for OncoMatch
 ![image](https://github.com/user-attachments/assets/7fb4a0ac-dce8-4675-9d52-820486dad6da)

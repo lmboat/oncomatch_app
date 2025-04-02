@@ -47,5 +47,17 @@ Columns: DRUG_NAME, nGENE, BLADDER_CPS, BLADDER_CGPS, COLON_CPS, COLON_CGPS, NSC
 This data comes from Drug Central, containing 2 columns, mapping gene name to cancer type
 Columns: GENE, CANCER
 
+### [1_preprocess_raw_data.ipynb](notebooks/1_preprocess_raw_data.ipynb)
+This notebook pre-processes the data to be utilized in visualization
+
+### [2_calculate_drug_score.ipynb](notebooks/2_calculate_drug_score.ipynb)
+This notebook calculates the drug scores
+
+### [3_calculate_drug_structure_similarity.ipynb](notebooks/3_calculate_structure_similarity.ipynb)
+This notebook calculates the drug structure similarity
+
+### [4_deepcoveragemoa.ipynb](notebooks/4_deepcoveragemoa.ipynb)
+This notebook for prediomics data processing (drug prediomics dataset)
+
  # Sample Radar Plots for OncoMatch
 ![image](https://github.com/user-attachments/assets/7fb4a0ac-dce8-4675-9d52-820486dad6da)

@@ -8,7 +8,7 @@
 
 # Workflow for OncoMatch
 ### OncoMatch is a web app that matches the cancer and gene mutation type to the most effective drug therapy based on the activity score of the drug against the specific gene target. We utilize the [COSMIC database](https://cancer.sanger.ac.uk/cosmic/browse/tissue?wgs=off&sn=ovary&ss=all&hn=all&sh=&in=t&src=tissue&all_data=n) - to identify the gene mutations for specific cancer types and the [Drug Central database](https://drugcentral.org/) - to identify the drug therapies and the specific genes they target.
-<img width="813" alt="Screen Shot 2025-04-02 at 11 58 29 AM" src="https://github.com/user-attachments/assets/c6ca0c50-5a05-448a-9b79-5112c674cdb4" />
+<img width="807" alt="Screen Shot 2025-04-02 at 2 22 11 PM" src="https://github.com/user-attachments/assets/4a595176-0375-4500-9a64-d740717ec0cb" />
 
 # Datasets for OncoMatch
 ### [Cosmic_CancerGeneCensus_v99_GRCh38.tsv](data/Cosmic/Cosmic_CancerGeneCensus_v99_GRCh38.tsv)

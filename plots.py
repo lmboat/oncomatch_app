@@ -4,12 +4,14 @@ import numpy as np
 import streamlit as st
 from rdkit import Chem, DataStructs
 from rdkit.Chem import AllChem
+import plotly.graph_objects as go
+import plotly.express as px
 
 D_NAME = "DRUG_NAME"
 G_DRIVER = "Driver_Gene"
 G_NAME = "GENE"
 D_ACT = "ACT_VALUE"
-
+C_NAME = "LINCS Cell Line"
 
 def radar_plot(df):
     """
@@ -241,7 +243,7 @@ def plot_proteomics_barplots(df_proteomics, selected_drugs, top_n=10):
         bars = ax.barh(drug_data[drug_name_col], drug_data[score_column])
 
         # Add labels and title
-        ax.set_xlabel("Similarity Score")
+        ax.set_xlabel("Proteomics Similarity Score")
         ax.set_ylabel("Similar Drugs")
         ax.set_title(f"Top {top_n} Drugs Similar to {drug}")
 
@@ -258,6 +260,115 @@ def plot_proteomics_barplots(df_proteomics, selected_drugs, top_n=10):
 
         # Adjust layout
         plt.tight_layout()
+        figures.append(fig)
+        similar_drugs.extend(drug_data[drug_name_col])
+
+    return figures, list(set(similar_drugs))
+
+
+def plot_genomics_barplots(df_genomics, selected_drugs, top_n=10):
+    """
+    Create barplots for each selected drug showing the top similar drugs from genomics data.
+
+    Parameters:
+    -----------
+    df_genomics : pandas DataFrame
+        DataFrame containing genomics data with similarity scores
+    selected_drugs : list
+        List of drug names to plot
+    top_n : int, default 10
+        Number of top similar drugs to display
+
+    Returns:
+    --------
+    list of matplotlib figures
+    """
+    figures = []
+    similar_drugs = []
+    # For each selected drug
+    for drug in selected_drugs:
+        # Filter the genomics data for the selected drug
+        drug_data = df_genomics[df_genomics["DRUG_NAME_1"] == drug]
+
+        # If no data found for this drug, skip
+        if drug_data.empty:
+            print(f"No genomics data found for {drug}")
+            continue
+
+        # Sort by similarity score (assuming it's in a column named 'SIMILARITY_SCORE')
+        # Adjust column name if needed
+        score_column = "LINCS Pearson (r)"
+
+        # Sort and get top N similar drugs
+        drug_data = drug_data.sort_values(by=score_column, ascending=False).head(top_n)
+
+        # # Create a barplot
+        # fig, ax = plt.subplots(figsize=(12, 6))
+
+        # Determine which column contains the similar drug names
+        drug_name_col = "DRUG_NAME_2"
+
+        # Create column for x axis by drug and cell line
+        # drug_data["DRUG_NAME_CELL_LINE"] = drug_data["DRUG_NAME_2"] + "_" + drug_data["LINCS Cell Line"]
+        drug_data["DRUG_NAME_CELL_LINE"] = drug_data["LINCS Cell Line"] + "_" + drug_data["DRUG_NAME_2"]
+        drug_name_cell_line_col = "DRUG_NAME_CELL_LINE"
+
+        # # Create the barplot
+        # bars = ax.bar(drug_data[drug_name_col], drug_data[score_column])
+
+        # # Add labels and title
+        # ax.set_xlabel("Genomics Similarity Score")
+        # ax.set_ylabel("Similar Drugs")
+        # ax.set_title(f"Top {top_n} Drugs Similar to {drug}")
+
+        # # Add values on bars
+        # for bar in bars:
+        #     width = bar.get_width()
+            # ax.text(
+            #     width + 0.01,
+            #     bar.get_y() + bar.get_height() / 2,
+            #     f"{width:.3f}",
+            #     ha="left",
+            #     va="center",
+            # )
+
+        # # Adjust layout
+        # plt.tight_layout()
+
+        # fig = go.Figure(go.Bar(
+        #     x=drug_data[drug_name_cell_line_col],
+        #     y=drug_data[score_column],
+        #     color=drug_data[C_NAME]
+        # ))
+
+        # fig.update_layout(
+        #     height=600,
+        #     width=1200,
+        #     margin=dict(l=100, r=20, t=30, b=30)
+        # )
+
+        fig = px.bar(
+            drug_data,
+            x=drug_name_col,
+            y=score_column,
+            color=C_NAME,  # this acts like hue
+            barmode='group',
+            # facet_col=C_NAME,
+            title=f"Top {top_n} Drugs Similar to {drug}",
+            labels={drug_name_col: "Similar Drugs", 
+                    score_column: 'Genomics Similarity Score',
+                    C_NAME: 'Cell Line'
+                    }
+        )
+
+        fig.update_layout(
+            xaxis_tickangle=-45,
+            plot_bgcolor='white',
+            paper_bgcolor='white',
+            xaxis=dict(showgrid=False),
+            yaxis=dict(showgrid=False)
+        )
+
         figures.append(fig)
         similar_drugs.extend(drug_data[drug_name_col])
 
